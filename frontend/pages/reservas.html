@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reservas - RentaCar</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">RentaCar</div>
+        <ul class="navbar-nav">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="clientes.html">Clientes</a></li>
+            <li><a href="reservas.html" class="active">Reservas</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="header-actions">
+            <h1>Gestión de Reservas</h1>
+            <button class="btn btn-primary" onclick="abrirModalReserva()">Nueva Reserva</button>
+        </div>
+
+        <div class="table-container mt-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Vehículo</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="reservas-table-body">
+                    <!-- Los datos se cargarán dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal para crear reserva -->
+    <div id="reserva-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModalReserva()">&times;</span>
+            <h2 id="modal-title">Nueva Reserva</h2>
+            <form id="reserva-form" onsubmit="guardarReserva(event)">
+                <input type="hidden" id="reserva-id">
+                <div class="form-group">
+                    <label class="form-label" for="cliente">Cliente:</label>
+                    <select id="cliente" class="form-control" required>
+                        <option value="">Seleccione un cliente</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="vehiculo">Vehículo:</label>
+                    <select id="vehiculo" class="form-control" required>
+                        <option value="">Seleccione un vehículo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="fechaInicio">Fecha de Inicio:</label>
+                    <input type="datetime-local" id="fechaInicio" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="fechaFin">Fecha de Fin:</label>
+                    <input type="datetime-local" id="fechaFin" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="total">Total:</label>
+                    <input type="number" id="total" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="estado">Estado:</label>
+                    <select id="estado" class="form-control" required>
+                        <option value="PENDIENTE">Pendiente</option>
+                        <option value="CONFIRMADA">Confirmada</option>
+                        <option value="EN_PROGRESO">En Progreso</option>
+                        <option value="COMPLETADA">Completada</option>
+                        <option value="CANCELADA">Cancelada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 RentaCar - Sistema de Alquiler de Vehículos</p>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/reservas.js"></script>
+</body>
+</html> 

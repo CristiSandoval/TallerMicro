@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Clientes - RentaCar</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">RentaCar</div>
+        <ul class="navbar-nav">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="clientes.html" class="active">Clientes</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="header-actions">
+            <h1>Gestión de Clientes</h1>
+            <button class="btn btn-primary" onclick="abrirModalCliente()">Nuevo Cliente</button>
+        </div>
+
+        <div class="table-container mt-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Número de Licencia</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="clientes-table-body">
+                    <!-- Los datos se cargarán dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal para crear/editar cliente -->
+    <div id="cliente-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModalCliente()">&times;</span>
+            <h2 id="modal-title">Nuevo Cliente</h2>
+            <form id="cliente-form" onsubmit="guardarCliente(event)">
+                <input type="hidden" id="cliente-id">
+                <div class="form-group">
+                    <label class="form-label" for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email:</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="numeroLicencia">Número de Licencia:</label>
+                    <input type="text" id="numeroLicencia" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="estado">Estado:</label>
+                    <select id="estado" class="form-control" required>
+                        <option value="ACTIVO">Activo</option>
+                        <option value="INACTIVO">Inactivo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 RentaCar - Sistema de Alquiler de Vehículos</p>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/clientes.js"></script>
+</body>
+</html> 

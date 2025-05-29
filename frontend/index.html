@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentaCar - Sistema de Alquiler de Vehículos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">RentaCar</div>
+        <ul class="navbar-nav">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="pages/vehiculos.html">Vehículos</a></li>
+            <li><a href="pages/clientes.html">Clientes</a></li>
+            <li><a href="pages/reservas.html">Reservas</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Bienvenido a RentaCar</h1>
+        <div class="dashboard">
+            <div class="dashboard-card">
+                <h3>Vehículos Disponibles</h3>
+                <div id="vehiculos-disponibles" class="dashboard-value">0</div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Reservas Activas</h3>
+                <div id="reservas-activas" class="dashboard-value">0</div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Clientes Registrados</h3>
+                <div id="total-clientes" class="dashboard-value">0</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 RentaCar - Sistema de Alquiler de Vehículos</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 
